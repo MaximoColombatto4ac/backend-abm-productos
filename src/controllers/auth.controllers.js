@@ -22,7 +22,7 @@ export const register = async (req, res) => {
         const nuevoUser = await newUser.save();
         const token = await createAccesToken({id: nuevoUser._id});
         res.cookie('token', token,{
-            sameSite: 'none',
+            sameSite: 'strict',
             secure: true
         });
 
@@ -53,7 +53,7 @@ export const login = async (req, res) => {
         const token = await createAccesToken({id: userFound._id});
 
         res.cookie('token', token,{
-            sameSite: 'none',
+            sameSite: 'strict',
             secure: true
         });
         res.json({
