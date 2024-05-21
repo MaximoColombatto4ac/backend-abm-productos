@@ -4,6 +4,12 @@ import { createAccesToken } from "../libs/jwt.js";
 import jwt from 'jsonwebtoken';
 import { TOKEN_SECRET } from '../config.js';
 
+export const status = async (req, res) => {
+    res.status(200).json({
+        message : "ok"
+    })
+}
+
 export const register = async (req, res) => {
     const { user, mail, password } = req.body;
 
