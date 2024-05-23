@@ -11,7 +11,7 @@ const app = express();
 
 
 app.use(cors({
-    origin: "*",
+    origin: process.env.ALLOWED_ORIGIN.split(' ') || 'http://localhost:5137',
     credentials: true,
 }));
 app.use(morgan('dev'));
