@@ -58,7 +58,6 @@ export const login = async (req, res) => {
         if(!isMatch) return res.status(500).json(["password incorrect"]);
         
         const token = await createAccesToken({id: userFound._id});
-        res.header('Access-Control-Allow-Credentials', true);
         res.cookie('token', token,{
             sameSite: 'none',
             secure: true,
